@@ -1,10 +1,5 @@
-from password import hash_password
 from slackbot import SlackBot
 import streamlit as st
-
-
-with open("hash.txt", "r") as inf:
-    PASSWORD = inf.read().strip()
 
 
 def check_password() -> bool:
@@ -12,7 +7,7 @@ def check_password() -> bool:
 
     def password_entered() -> None:
         """Checks whether a password entered by the user is correct."""
-        if hash_password(st.session_state["password"]) == PASSWORD:
+        if st.session_state["password"] == st.secrets["PASSWORD"]:
             st.session_state["password_correct"] = True
             del st.session_state["password"]  # don't store password
         else:
