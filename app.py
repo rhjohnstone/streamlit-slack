@@ -31,7 +31,7 @@ def check_password() -> bool:
         return True
 
 
-slackbot = SlackBot(st.secrets["token"], st.secrets["channel_id"])
+slackbot = SlackBot(st.secrets["TOKEN"], st.secrets["CHANNEL_ID"])
 
 if check_password():
     message = st.text_input("Message")
